@@ -1,0 +1,17 @@
+<div>
+  <h1 class="mt-8 md:font-bold text-4xl">Admin Dashboard</h1>
+  <p class="lead mb-3">Welcome <%= user.name %></p>
+  <div>Current Active Sessions:</div>
+  <ul>
+    <% sessions.forEach(session => { %>
+    <li class="mt-4">
+      <div>SessionID: <%= session.id %></div>
+      <div>UserID: <%= session.userId %></div>
+      
+      <form method="POST" action="/admin/revoke/<%= session.id %>" class="mt-2">
+        <button type="submit" class="text-sky-600">Revoke Session</button>
+      </form>
+    </li>
+    <% }); %>
+  </ul>
+</div>
